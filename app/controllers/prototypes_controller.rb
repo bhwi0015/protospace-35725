@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, expect: [:index, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
   def index
-    @prototypes = Prototype.includes(:user).order("created_at DESC")
+    @prototypes = Prototype.all.order("created_at DESC")
 
   end
 
